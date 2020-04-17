@@ -42,3 +42,26 @@ WHERE neighborhood = 'Midtown' OR neighborhood = 'Downtown' OR neighborhood = 'C
 SELECT *
 FROM nomnom
 WHERE health IS NULL;
+
+/* Create a Top 10 restaurant ranking base on reviews */
+SELECT *
+FROM nomnom
+ORDER BY review DESC
+LIMIT 10;
+
+/* Use a CASE statement to change the rating system to:
+review > 4.5 is Extraordinary
+review > 4 is Excellent
+review > 3 is Good
+review > 2 is Fair
+Everything else is Poor
+Don’t forget to rename the new column! */
+SELECT name,
+  CASE 
+   WHEN review > 4.5 THEN 'Extraordinary'
+   WHEN review > 4 THEN 'Excellent'
+   WHEN review > 3 THEN 'Good'
+   WHEN review > 2 THEN 'Fair'
+   ELSE 'Poor'
+  END AS 'Review'  
+FROM nomnom;
