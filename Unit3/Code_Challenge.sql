@@ -37,3 +37,18 @@ HAVING duratio_total > 400;
 SELECT ROUND(SUM(watch_duration_in_minutes), 0) AS 'Overall_duration'
 FROM watch_history;
 
+/* Which days in this period did Codeflix collect the most money? */
+SELECT pay_date AS date, SUM(amount) AS "total amount"
+FROM payments
+WHERE status = 'paid'
+GROUP BY pay_date
+ORDER BY sum(amount) DESC;
+
+/* When users successfully pay Codeflix (status = 'paid'), what is the average payment amount?    */
+SELECT avg(amount) AS "Avg Payment"
+FROM payments
+WHERE status == 'paid';
+
+/* Of all the events in the watch_history table, what is the duration of the longest individual watch event? What is the duration of the shortest?   */
+SELECT MAX(watch_duration_in_minutes) AS 'max duration', MIN(watch_duration_in_minutes) AS 'min duration'
+FROM watch_history;
