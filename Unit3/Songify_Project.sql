@@ -1,0 +1,5 @@
+/*See which plans are used by premium members*/
+SELECT premium_users.user_id, plans.description
+FROM plans
+JOIN premium_users
+ON premium_users.membership_plan_id = plans.id;
