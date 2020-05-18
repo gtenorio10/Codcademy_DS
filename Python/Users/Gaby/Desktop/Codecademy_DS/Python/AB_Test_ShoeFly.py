@@ -27,3 +27,15 @@ a_clicks = ad_clicks[
 b_clicks = ad_clicks[
    ad_clicks.experimental_group
    == 'B']
+
+a_is_click_day = a_clicks.groupby(['is_click', 'day']).user_id.count().reset_index()
+print(a_is_click_day)
+
+b_is_click_day = b_clicks.groupby(['is_click', 'day']).user_id.count().reset_index()
+print(b_is_click_day)
+
+a_is_click_day_pivot = a_is_click_day.pivot(columns = 'day', index = 'is_click', values = 'user_id')
+print(a_is_click_day_pivot)
+
+b_is_click_day_pivot = b_is_click_day.pivot(columns = 'day', index = 'is_click', values = 'user_id')
+print(b_is_click_day_pivot)
