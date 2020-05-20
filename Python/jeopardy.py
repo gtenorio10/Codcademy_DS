@@ -20,3 +20,6 @@ jeopardy_df.rename(columns = {
     }, inplace = True)
 
 print(list(jeopardy_df.columns))
+
+
+
