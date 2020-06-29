@@ -17,8 +17,27 @@ plt.title("GDP vs Country")
 plt.show()
 
 sns.boxplot(data = df, x = "Country", y = "LEABY")
-plt.title("GDP vs LEABY")
+plt.title("LEABY vs Country")
 plt.show()
 
+#Violin plot
+sns.violinplot(data = df, x= "Country", y = "LEABY")
+plt.title("LEABY vs Country")
+plt.show()
 
+#Bar plot GDP and LEABY over time
+f, ax = plt.subplots(figsize=(10, 15))
+ax = sns.barplot(data = df, x = "Country", y = "GDP", hue = "Year")
+plt.title("GDP over time")
+plt.xticks(rotation = 70)
+plt.ylabel("GDP in Trillions of U.S Dollars")
+plt.show()
+
+#Bar plot GDP and Country over time
+f, ax = plt.subplots(figsize=(10, 15))
+ax = sns.barplot(data = df, x = "Country", y = "LEABY", hue = "Year")
+plt.title("Life Expectancy over time")
+plt.xticks(rotation = 70)
+plt.ylabel("Life expectancy at birth in years")
+plt.show()
 
