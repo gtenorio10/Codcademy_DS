@@ -21,6 +21,8 @@ sns.set_palette(sns.color_palette("Set3"))
 f,ax = plt.subplots(figsize=(25, 15))
 
 sns.barplot(data = df, x = df.country, y = df.loan_amount, hue = df.gender)
+plt.ylabel("Loan Amount")
+plt.xlabel("Country")
 ax.set_title("Total Loan Amount Awarded by Gender")
 fmt = '${x:,.0f}'
 tick = mtick.StrMethodFormatter(fmt)
@@ -28,24 +30,35 @@ ax.yaxis.set_major_formatter(tick)
 plt.show()
 
 #Box plot
-plt.figure(figsize=(16, 10))
+f,ax = plt.subplots(figsize=(16, 10))
 sns.set_palette(sns.color_palette("Accent"))
 sns.boxplot(data = df, x = df.country, y = df.loan_amount)
-plt.title("The distribution of loan amounts by country")
+plt.ylabel("Loan Amount")
+plt.xlabel("Country")
+plt.title("The Distribution Of Loan Amounts By Countries")
+fmt = '${x:,.0f}'
+tick = mtick.StrMethodFormatter(fmt)
+ax.yaxis.set_major_formatter(tick)
 plt.show()
 
 #Box plot by activity
 plt.figure(figsize=(16, 10))
 sns.set_palette(sns.color_palette("Dark2"))
 sns.boxplot(data = df, x = df.activity, y = df.loan_amount)
-plt.title("The distribution of loan amounts by Activity")
+plt.title("The Distribution Of Loan Amounts By Activity")
 plt.show()
 
 #Violin Plot
-plt.figure(figsize=(16, 10))
+#plt.figure(figsize=(16, 10))
 sns.set_palette(sns.color_palette("Dark2"))
+f,ax = plt.subplots(figsize=(16, 10))
 sns.violinplot(data = df, x = df.activity, y = df.loan_amount)
-plt.title("The distribution of loan amounts by Activity")
+plt.ylabel("Loan Amount")
+plt.xlabel("Activity")
+plt.title("The Distribution Of Loan Amounts By Activity")
+fmt = '${x:,.0f}'
+tick = mtick.StrMethodFormatter(fmt)
+ax.yaxis.set_major_formatter(tick)
 plt.show()
 
 plt.figure(figsize=(16, 10))
